@@ -1,4 +1,4 @@
-# Socke.io Example
+# Socket.io Example
 
 Este proyecto consta de cliente y servidor.
 
