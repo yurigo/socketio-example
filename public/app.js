@@ -6,7 +6,7 @@ let usersConnected = document.getElementById("counter");
 
 const urlParams = new URLSearchParams(window.location.search);
 
-const socket = io("ws://localhost:4000");
+const socket = io();
 
 socket.on("message", (data) => {
     const d = document.createElement("div");

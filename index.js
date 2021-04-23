@@ -1,7 +1,13 @@
-const http = require("http").createServer();
+const express = require("express");
+const app = express();
+const http = require("http").createServer(app);
 const io = require("socket.io")(http, {
     cors: { origin: "*" },
 });
+const cors = require("cors");
+app.use(cors());
+
+app.use(express.static("public"));
 
 let usersConnected = 0;
 
@@ -38,4 +44,6 @@ io.on("connection", (socket) => {
     });
 });
 
-http.listen(4000, () => console.log("websocket en puerto 4000"));
+const port = process.env.PORT || 3000;
+
+http.listen(port);
